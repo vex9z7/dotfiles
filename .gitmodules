@@ -1,0 +1,3 @@
+[submodule "bluetooth-autoconnect"]
+	path = bluetooth-autoconnect
+	url = git@github.com:ThisisRito/bluetooth-autoconnect.git
