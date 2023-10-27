@@ -46,6 +46,9 @@ exec_always --no-startup-id bash -c 'source $HOME/.profile'
 # japanese keyboard
 exec --no-startup-id ibus-daemon -drx
 
+# syncthing: 
+exec --no-startup-id syncthing
+
 # sound control
 # pulseaudio: to adjust volume
 set $refresh_i3status killall -SIGUSR1 i3status
