@@ -280,3 +280,15 @@ for_window [class="^.*"] border normal
 default_border pixel 1
 gaps inner 10
 
+
+# dunst
+mode "notifications" {
+    bindsym j exec "dunstctl history-pop"
+    bindsym k exec "dunstctl close"
+    bindsym Return exec "dunstcl action"
+    bindsym m exec "dunstctl set-paused toggle"
+
+    bindsym Escape exec "dunstctl close-all" ; mode "default"
+    bindsym $mod+grave exec "dunstctl close-all" ; mode "default"
+}
+bindsym $mod+grave mode "notifications"
