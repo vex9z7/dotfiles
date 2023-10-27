@@ -21,6 +21,9 @@ set ruler
 set clipboard=unnamedplus
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" nerd font relies on this
+set encoding=UTF-8
+
 
 " netrw
 " set tree mode as default in Netrw
@@ -106,6 +109,9 @@ Plug 'justinmk/vim-sneak'
 
 " dpelle/vim-LanguageTool: grammar check
 Plug 'dpelle/vim-LanguageTool'
+
+" nerd font
+Plug 'ryanoasis/vim-devicons'
 
 " End Vim-Plug plugin manager
 call plug#end()
