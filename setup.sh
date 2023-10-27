@@ -47,3 +47,10 @@ done
 sudo mkdir -p /etc/xdg/.config
 sudo rm -f /etc/xdg/.config/picom
 sudo ln -s $(realpath picom) /etc/xdg/.config/
+
+# bluetooth-autoconnect
+cd bluetooth-autoconnect
+sudo cp $(realpath bluetooth-autoconnect) /usr/local/bin/
+sudo cp $(realpath bluetooth-autoconnect.service) /etc/systemd/system/
+sudo systemctl enable bluetooth-autoconnect
+
