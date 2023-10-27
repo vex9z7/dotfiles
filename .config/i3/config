@@ -257,3 +257,11 @@ bindsym $mod+p exec gnome-control-center
 
 # lock
 bindsym $mod+Escape exec loginctl lock-session
+
+
+
+# i3 gap
+for_window [class="^.*"] border normal
+default_border pixel 1
+gaps inner 10
+
