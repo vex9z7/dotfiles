@@ -19,7 +19,6 @@ font pango:SAO UI TT 16
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -237,17 +236,20 @@ bindsym $mod+c exec warpd --normal
 bindsym $mod+g exec warpd --grid
 
 
+
 # assign workspaces
-workspace 1 output left
-workspace 2 output left
-workspace 3 output left
-workspace 4 output left
-workspace 5 output left
-workspace 6 output right
-workspace 7 output right
-workspace 8 output right
-workspace 9 output right
-workspace 10 output right
+set $leftMonitor "DP-1"
+set $rightMonitor "DP-4"
+workspace 1 output $leftMonitor
+workspace 2 output $leftMonitor
+workspace 3 output $leftMonitor
+workspace 4 output $leftMonitor
+workspace 5 output $leftMonitor
+workspace 6 output $rightMonitor
+workspace 7 output $rightMonitor
+workspace 8 output $rightMonitor
+workspace 9 output $rightMonitor
+workspace 10 output $rightMonitor
 
 
 # move workspace between monitors
