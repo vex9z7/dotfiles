@@ -244,7 +244,8 @@ workspace 10 output DP-0
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym Print exec QT_SCREEN_SCALE_FACTORS="" flameshot gui
+bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pin
+bindsym Shift + Print --release exec peek
 
 # reset minotor layouts
 bindsym $mod+Home exec --no-startup-id bash ~/.config/xrandr/init.sh && picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/.config/picom/picom.config && bash ~/.profile
