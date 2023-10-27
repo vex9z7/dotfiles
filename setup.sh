@@ -64,3 +64,8 @@ sudo cp $(realpath bluetooth-autoconnect) /usr/local/bin/
 sudo cp $(realpath bluetooth-autoconnect.service) /etc/systemd/system/
 sudo systemctl enable bluetooth-autoconnect
 
+
+# copy resources
+cp -r resources $(realpath ~/.config)/
+# copy fonts
+cp -r fonts $(realpath ~/.local/share)/
