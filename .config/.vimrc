@@ -11,6 +11,9 @@ set hidden
 set hls
 nnoremap <esc><esc> :noh<return><esc>
 
+" map leader to space
+let mapleader = " "
+
 " display line number, row number and percentages 
 set ruler
 
