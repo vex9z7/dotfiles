@@ -33,14 +33,15 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id bluetooth-autoconnect -d
 
 # picom
-exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/.config/picom/picom.config
-# exec --no-startup-id picom --config /etc/xdg/.config/picom/picom.config
+exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/picom/picom.config
+# xrdb: scaling
+exec --no-startup-id xrdb ~/.Xresources
 
 # copyq clipboard
 exec --no-startup-id copyq
 
 # xrandr for monitors
-exec --no-startup-id bash /etc/xdg/.config/xrandr/init.sh
+exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
 
 # source .profile
 exec_always --no-startup-id bash -c 'source $HOME/.profile'
@@ -99,6 +100,7 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
 
 
 # hide and show windows
@@ -253,7 +255,7 @@ bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pi
 bindsym Shift + Print --release exec peek
 
 # reset minotor layouts
-bindsym $mod+Home exec --no-startup-id bash ~/.config/xrandr/init.sh && picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/.config/picom/picom.config && bash ~/.profile
+bindsym $mod+Home exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/picom/picom.config && bash ~/.profile
 
 # clipboard manager
 bindsym $mod+v exec copyq menu

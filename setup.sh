@@ -42,11 +42,21 @@ for config  in $configs; do
 		fi
 	fi
 done
+# Xresource
+ln -s $(realpath .Xresources) $(realpath ~)
+
+cd -
+
 
 # make soft link for picom
-sudo mkdir -p /etc/xdg/.config
-sudo rm -f /etc/xdg/.config/picom
-sudo ln -s $(realpath picom) /etc/xdg/.config/
+sudo rm -f /etc/xdg/picom
+sudo ln -s $(realpath picom) /etc/xdg
+
+
+# make soft link for xrandr
+sudo rm -f /etc/xdg/xrandr
+sudo ln -s $(realpath xrandr) /etc/xdg
+
 
 # bluetooth-autoconnect
 cd bluetooth-autoconnect
