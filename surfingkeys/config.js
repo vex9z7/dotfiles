@@ -1,6 +1,6 @@
 // an example to create a new mapping `ctrl-y`
 api.mapkey('<ctrl-y>', 'Show me the money', function() {
-    Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
+  Front.showPopup('a well-known phrase uttered by characters in the 1996 film Jerry Maguire (Escape to close).');
 });
 
 // an example to replace `T` with `gt`, click `Default mappings` to see how `T` works.
@@ -48,31 +48,103 @@ settings.theme = `
     font-size: 20pt;
 }`;
 // click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
+//
+//
+
+//
+// https://foosoft.net/projects/anki-connect/
+function invokeAnkiConnect(action, version, params={}) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('error', () => reject('failed to issue request'));
+        xhr.addEventListener('load', () => {
+            try {
+                const response = JSON.parse(xhr.responseText);
+                if (Object.getOwnPropertyNames(response).length != 2) {
+                    throw 'response has an unexpected number of fields';
+                }
+                if (!response.hasOwnProperty('error')) {
+                    throw 'response is missing required error field';
+                }
+                if (!response.hasOwnProperty('result')) {
+                    throw 'response is missing required result field';
+                }
+                if (response.error) {
+                    throw response.error;
+                }
+                resolve(response.result);
+            } catch (e) {
+                reject(e);
+            }
+        });
+
+        xhr.open('POST', 'http://127.0.0.1:8765');
+        xhr.send(JSON.stringify({action, version, params}));
+    });
+}
+
 
 api.Front.registerInlineQuery({
-    url: function(q) {
-        return `http://dict.youdao.com/w/eng/${q}/#keyfrom=dict2.index`;
-    },
-    parseResult: function(res) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(res.text, "text/html");
-        var collinsResult = doc.querySelector("#collinsResult");
-        var authTransToggle = doc.querySelector("#authTransToggle");
-        var examplesToggle = doc.querySelector("#examplesToggle");
-        if (collinsResult) {
-            collinsResult.querySelectorAll("div>span.collinsOrder").forEach(function(span) {
-                span.nextElementSibling.prepend(span);
-            });
-            collinsResult.querySelectorAll("div.examples").forEach(function(div) {
-                div.innerHTML = div.innerHTML.replace(/<p/gi, "<span").replace(/<\/p>/gi, "</span>");
-            });
-            var exp = collinsResult.innerHTML;
-            return exp;
-        } else if (authTransToggle) {
-            authTransToggle.querySelector("div.via.ar").remove();
-            return authTransToggle.innerHTML;
-        } else if (examplesToggle) {
-            return examplesToggle.innerHTML;
+  url: function(q) {
+    return `http://dict.youdao.com/w/eng/${q}/#keyfrom=dict2.index`;
+  },
+  parseResult: function(res) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(res.text, "text/html");
+    var collinsResult = doc.querySelector("#collinsResult");
+    var authTransToggle = doc.querySelector("#authTransToggle");
+    var examplesToggle = doc.querySelector("#examplesToggle");
+
+    if (collinsResult) {
+      collinsResult.querySelectorAll("div>span.collinsOrder").forEach(function(span) {
+        span.nextElementSibling.prepend(span);
+      });
+      collinsResult.querySelectorAll("div.examples").forEach(function(div) {
+        div.innerHTML = div.innerHTML.replace(/<p/gi, "<span").replace(/<\/p>/gi, "</span>");
+      });
+      var exp = collinsResult.innerHTML;
+      title = collinsResult.querySelector('.title');
+      word = title.innerText;
+
+      //
+      // parse each explanations
+      // not needed now
+      //
+      // meanings = Array.from(collinsResult.querySelectorAll('.collinsMajorTrans'))
+      //   .map(
+      //     rawMeaning => {
+      //       meaning = rawMeaning.textContent.split('\n')
+      //         .map(line => line.trim())
+      //         .filter(line => line !== '')
+      //         .join('\n');
+      //       return meaning;
+      //     }
+      //   );
+
+      invokeAnkiConnect('addNote', 5,
+        {
+          "note": {
+            "deckName": "Default",
+            "modelName": "Basic",
+            "fields": {
+              "Front": word,
+              "Back": collinsResult.querySelector('.ol').outerHTML,
+            },
+            "tags": [
+              "surfingkeys"
+            ]
+          }
         }
+      ).catch(error=>void console.error({error}));
+
+      return exp;
+    } else if (authTransToggle) {
+      authTransToggle.querySelector("div.via.ar").remove();
+      console.log(`authTransToggle.innerHTML=${authTransToggle.innerHTML}`);
+      return authTransToggle.innerHTML;
+    } else if (examplesToggle) {
+      console.log(`exmaples.innerHTML=${examplesToggle.innerHTML}`);
+      return examplesToggle.innerHTML;
     }
+  }
 });
