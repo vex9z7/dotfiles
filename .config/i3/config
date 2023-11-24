@@ -261,10 +261,10 @@ bindsym Shift + Print --release exec peek
 
 
 # laptop layout
-bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && notify-send "Laptop layout is set." && bash ~/.profile && notify-send ".profile is sourced"
+bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && bash ~/.profile
 
 # 2 vertical layout when using K380
-bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && notify-send "2-vertical layout is set." && bash ~/.profile && notify-send ".profile is sourced" 
+bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && bash ~/.profile
 
 
 # clipboard manager
