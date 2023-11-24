@@ -17,6 +17,10 @@ let mapleader = " "
 " display line number, row number and percentages 
 set ruler
 
+" search will be case sensitive if it contains an uppercase letter
+set ignorecase
+set smartcase
+
 " set system clipboard as the default clipboard
 set clipboard=unnamedplus
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
