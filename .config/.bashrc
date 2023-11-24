@@ -15,8 +15,9 @@ bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
 
-# the fuck
+# The fuck - ref. https://github.com/nvbn/thefuck.
 eval "$(thefuck --alias)"
+eval "$(thefuck --alias FUCK)"
 
 
 # Load pyenv automatically by appending
