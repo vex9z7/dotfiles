@@ -208,6 +208,7 @@ autocmd VimEnter * Limelight
 " source for other completion plugins, like Deoplete.
 let g:ale_virtualtext_cursor = 1
 let g:ale_completion_enabled = 1
+let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['eslint'] }
 nmap gd :ALEGoToDefinition<CR>
 nmap gr :ALEFindReferences<CR>
 nmap K :ALEHover<CR>
