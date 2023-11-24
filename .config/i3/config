@@ -259,8 +259,13 @@ bindsym $mod+Shift+less move workspace to output left
 bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pin
 bindsym Shift + Print --release exec peek
 
-# reset minotor layouts
-bindsym $mod+Home exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/picom/picom.config && bash ~/.profile
+
+# laptop layout
+bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && notify-send "Laptop layout is set." && bash ~/.profile && notify-send ".profile is sourced"
+
+# 2 vertical layout when using K380
+bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && notify-send "2-vertical layout is set." && bash ~/.profile && notify-send ".profile is sourced" 
+
 
 # clipboard manager
 bindsym $mod+v exec copyq menu
