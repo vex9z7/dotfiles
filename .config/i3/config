@@ -41,7 +41,7 @@ exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id copyq
 
 # xrandr for monitors
-exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
+# exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
 
 # source .profile
 exec_always --no-startup-id bash -c 'source $HOME/.profile'
