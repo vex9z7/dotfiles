@@ -79,32 +79,35 @@ time {
 }
 
 load {
+        # max_threshold = "5"
+
         format = "󰾆  %1min"
-        max_threshold = "5"
         format_above_threshold = "󰓅  %1min"
 }
 
 
 cpu_usage {
+        # max_threshold = "75"
+        # degraded_threshold = "25"
+
         format = "   %usage"
-        max_threshold = "75"
-        degraded_threshold = "25"
 }
 
 cpu_temperature 0 {
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp*_input"
 
-        max_threshold = "75"
+        # max_threshold = "75"
 
         format = " %degrees °C"
         format_above_threshold = " %degrees °C"
 }
 
 memory {
+        # threshold_degraded = "30%"
+        # threshold_critical = "10%"
+
         # format = "  %used(%percentage_used)"
         format = "  %percentage_used"
-        threshold_degraded = "30%"
-        threshold_critical = "10%"
         format_degraded = "  %available(%percentage_available)"
 }
 
