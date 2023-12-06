@@ -32,4 +32,4 @@ eval "$(pyenv init -)"
 # Load pyenv-virtualenv automatically by adding
 # the following to ~/.bashrc:
 
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"

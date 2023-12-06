@@ -203,6 +203,15 @@ flatpak install flathub com.ozmartians.VidCutter
 #!/bin/bash
 flameshot gui --raw -s | tesseract - - | xclip -in -selection clipboard
 ```
+### gpt
+#### dependency
+- terminator
+- vim with python3
+    - vim-ai
+```
+#!/bin/bash
+terminator -e 'vim -c "AIChat" -c "only"'
+```
 
 
 # SAO color schema

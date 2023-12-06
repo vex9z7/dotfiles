@@ -222,12 +222,6 @@ nmap K :ALEHover<CR>
 xnoremap <leader>c :AIChat<CR>
 nnoremap <leader>c :AIChat<CR>
 
-let myprompt = "Please add comments to the code explaining the code line by line".", and keep in mind that you can only write comments"
-command! -range -nargs=? AICode <line1>,<line2>call vim_ai#AIRun(<range>, myprompt . "Noted that the programming syntax is " . &filetype)
-
-xnoremap <leader>e :AICode<CR>
-nnoremap <leader>e :AICode<CR>
-
 
 " junegunn/vim-peekaboo
 let g:peekaboo_compact = 1
