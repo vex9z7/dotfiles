@@ -72,6 +72,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ### rg
 https://github.com/BurntSushi/ripgrep#installation
 
+### fugitive
+https://github.com/tpope/vim-fugitive
+
 # CLI tools
 - zathura: pdf reader
 - ncdu: disk usage analyzer

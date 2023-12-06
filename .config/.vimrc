@@ -97,9 +97,6 @@ Plug 'jparise/vim-graphql'        " GraphQL syntax
 " chatGPT
 Plug 'madox2/vim-ai', { 'do': './install.sh' }
 
-" git
-Plug 'airblade/vim-gitgutter'
-
 " Junegunn/varder.vim: Vimscript test framework
 Plug 'junegunn/vader.vim'
 
