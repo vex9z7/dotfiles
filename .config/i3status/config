@@ -10,18 +10,19 @@ order += "path_exists VPN"
 order += "wireless _first_"
 order += "ethernet _first_"
 
-order += "battery all"
 
 order += "volume master"
+
 
 order += "cpu_usage"
 order += "load"
 order += "cpu_temperature 0"
 order += "memory"
-
 order += "disk /"
 
+
 order += "time"
+order += "battery all"
 
 
 volume master {
@@ -75,15 +76,11 @@ path_exists VPN {
 }
 
 time {
+        separator = false
+
         format = "%m-%d %H:%M"
 }
 
-load {
-        # max_threshold = "5"
-
-        format = "󰾆  %1min"
-        format_above_threshold = "󰓅  %1min"
-}
 
 
 cpu_usage {
@@ -91,12 +88,24 @@ cpu_usage {
         # degraded_threshold = "25"
 
         format = "   %usage"
+        separator = false
+}
+
+load {
+        # max_threshold = "5"
+
+        separator = false
+
+        format = "󰾆  %1min"
+        format_above_threshold = "󰓅  %1min"
 }
 
 cpu_temperature 0 {
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp*_input"
 
         # max_threshold = "75"
+
+        separator = false
 
         format = " %degrees °C"
         format_above_threshold = " %degrees °C"
@@ -107,8 +116,12 @@ memory {
         # threshold_critical = "10%"
 
         # format = "  %used(%percentage_used)"
+
+        separator = false
+
         format = "  %percentage_used"
         format_degraded = "  %available(%percentage_available)"
+
 }
 
 disk "/" {
