@@ -33,7 +33,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id bluetooth-autoconnect -d
 
 # picom
-exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/picom/picom.config
+exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence
 # xrdb: scaling
 exec --no-startup-id xrdb ~/.Xresources
 

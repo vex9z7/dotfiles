@@ -1,5 +1,8 @@
 #!/bin/bash
 
+DOTS_ROOT=$(pwd)
+
+
 cd .config
 configs=$(ls -A)
 
@@ -18,51 +21,49 @@ for config in $configs; do
 	fi
 done
 
-cd 
-cd .config
+cd ~/.config
 
-for config  in $configs; do
-	if [ -f "./$config" ]; then
-		if [ "$config" == ".bashrc" ] || [ "$config" == ".profile" ]; then
-			# make .bashrc source ./config/.bashrc
-			# make .profile source ./config/.profile
-			if ! [ -f "../$config" ]; then
-				touch "../$config"
-			fi
+for config  in .bashrc .profile; do
+    # source ./config/.bashrc in .bashrc
+    # source ./config/.profile in .profile
+    if ! [ -f "../$config" ]; then
+      touch "../$config"
+    fi
 
-			cmd="source $(realpath $config)"
+    cmd="source $(realpath $config)"
 
-			if ! grep -q "$cmd" "../$config" ; then
-				echo "$cmd" >> ../$config
-			fi
-		else
-			# other configuration files
-			rm -f ~/$config
-			sudo ln -s $(realpath $config) ~/
-		fi
-	fi
+    if ! grep -q "$cmd" "../$config" ; then
+      echo "$cmd" >> ../$config
+    fi
 done
-# Xresource
-ln -s $(realpath .Xresources) $(realpath ~)
 
-cd -
+
+# create soft links in ~ for other configuration files
+for config  in .vimrc .Xmodmap .Xresources; do
+  rm -f ~/$config
+  ln -s $(realpath $config) ~/
+done
 
 
 # make soft link for picom
-sudo rm -f /etc/xdg/picom
-sudo ln -s $(realpath picom) /etc/xdg
+sudo rm -f /etc/xdg/picom.conf 
+sudo ln -s $(realpath picom.conf) /etc/xdg
 
 
 # make soft link for xrandr
 sudo rm -f /etc/xdg/xrandr
 sudo ln -s $(realpath xrandr) /etc/xdg
 
+# go to dots root
+cd $DOTS_ROOT
 
 # bluetooth-autoconnect
 cd bluetooth-autoconnect
 sudo cp $(realpath bluetooth-autoconnect) /usr/local/bin/
 sudo cp $(realpath bluetooth-autoconnect.service) /etc/systemd/system/
 sudo systemctl enable bluetooth-autoconnect
+# go to dots root
+cd $DOTS_ROOT
 
 
 # copy resources
