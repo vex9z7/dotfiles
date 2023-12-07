@@ -87,8 +87,11 @@ cpu_usage {
         # max_threshold = "75"
         # degraded_threshold = "25"
 
-        format = "   %usage"
         separator = false
+
+        format = "󰾆  %usage"
+        format_above_degraded_threshold = "󰾅  %usage"
+        format_above_threshold = "󰓅  %usage"
 }
 
 load {
@@ -96,8 +99,8 @@ load {
 
         separator = false
 
-        format = "󰾆  %1min"
-        format_above_threshold = "󰓅  %1min"
+        format = "󱀤  %1min"
+        # format_above_threshold = "󱀤 %1min"
 }
 
 cpu_temperature 0 {
@@ -119,8 +122,8 @@ memory {
 
         separator = false
 
-        format = "  %percentage_used"
-        format_degraded = "  %available(%percentage_available)"
+        format = "󰍛  %percentage_used"
+        format_degraded = "󰍛  %available(%percentage_available)"
 
 }
 
