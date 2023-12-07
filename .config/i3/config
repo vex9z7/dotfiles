@@ -14,7 +14,7 @@ set $mod Mod1
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # with SAO font
-font pango:SAO UI TT 16
+font pango: SAO UI TT 16
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -261,10 +261,10 @@ bindsym Shift + Print --release exec peek
 
 
 # laptop layout
-bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && bash ~/.profile
+bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && bash ~/.profile && picom --experimental-backends --backend glx --xrender-sync-fence
 
 # 2 vertical layout when using K380
-bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && bash ~/.profile
+bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && bash ~/.profile && picom --experimental-backends --backend glx --xrender-sync-fence
 
 
 # clipboard manager
