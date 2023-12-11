@@ -299,3 +299,11 @@ mode "notifications" {
     bindsym $mod+grave exec "dunstctl close-all" ; mode "default"
 }
 bindsym $mod+grave mode "notifications"
+
+
+mode "Caps Lock" {
+  bindsym Caps_Lock mode "default"
+  # bindsym j mode "default"
+}
+
+bindsym Caps_Lock mode "Caps Lock"
