@@ -84,8 +84,8 @@ time {
 
 
 cpu_usage {
-        # max_threshold = "75"
-        # degraded_threshold = "25"
+        max_threshold = "66"
+        degraded_threshold = "33"
 
         separator = false
 
