@@ -1,10 +1,8 @@
 clear Lock
 clear Control
-clear Shift
 
 keycode 37 = Caps_Lock
 keycode 66 = Control_L
 
 add Lock = Caps_Lock
 add Control = Control_L Control_R
-add Shift = Shift_L
