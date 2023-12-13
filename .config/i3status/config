@@ -31,16 +31,19 @@ volume master {
         device = "pulse"
 }
 
+
 wireless _first_ {
         format_up = "󰖩  [%essid, %quality] %ip (%bitrate)"
         format_down = "󰖪"
 }
+
 
 ethernet _first_ {
         format_up = "󰱓  %ip (%speed)"
 
         format_down = "󰅛"
 }
+
 
 battery all {
         path = "/sys/class/power_supply/BAT%d/uevent"
@@ -64,10 +67,12 @@ battery all {
         # 󰂎 can be used to indicate the battery is low
 }
 
+
 run_watch DHCP {
         pidfile = "/var/run/dhclient*.pid"
         format_down=""
 }
+
 
 path_exists VPN {
         # path exists when a VPN tunnel launched by nmcli/nm-applet is active
@@ -75,12 +80,12 @@ path_exists VPN {
         format_down=""
 }
 
+
 time {
         separator = false
 
         format = "%m-%d %H:%M"
 }
-
 
 
 cpu_usage {
@@ -94,6 +99,7 @@ cpu_usage {
         format_above_threshold = "󰓅  %usage"
 }
 
+
 load {
         # max_threshold = "5"
 
@@ -103,8 +109,9 @@ load {
         # format_above_threshold = "󱀤 %1min"
 }
 
+
 cpu_temperature 0 {
-        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp*_input"
+        path = "/sys/devices/platform/**/**/**/temp*_input"
 
         # max_threshold = "75"
 
@@ -113,6 +120,7 @@ cpu_temperature 0 {
         format = " %degrees °C"
         format_above_threshold = " %degrees °C"
 }
+
 
 memory {
         # threshold_degraded = "30%"
@@ -126,6 +134,7 @@ memory {
         format_degraded = "󰍛  %available(%percentage_available)"
 
 }
+
 
 disk "/" {
         # format = "󰋊  %used(%percentage_used) "
