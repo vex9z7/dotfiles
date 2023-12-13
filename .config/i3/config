@@ -73,6 +73,8 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 # start chrome
 bindsym $mod+backslash exec google-chrome
+# start gpt
+bindsym $mod+g exec gpt
 # start zathura
 bindsym $mod+z exec zathura
 
@@ -233,7 +235,6 @@ bar {
 # lazy mouse
 bindsym $mod+x exec warpd --hint2
 bindsym $mod+c exec warpd --normal
-bindsym $mod+g exec warpd --grid
 
 
 
