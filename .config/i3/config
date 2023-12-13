@@ -302,9 +302,9 @@ mode "notifications" {
 bindsym $mod+grave mode "notifications"
 
 
+# TODO this might have issue with running a docker image
 mode "Caps Lock" {
   bindsym Caps_Lock mode "default"
-  # bindsym j mode "default"
 }
 
 bindsym Caps_Lock mode "Caps Lock"
