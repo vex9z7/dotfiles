@@ -46,7 +46,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " joshdick/onedark: dark theme
-Plug 'joshdick/onedark.vim'
+" Plug 'joshdick/onedark.vim'
+
+" hachy/eva01.vim: eva theme
+Plug 'hachy/eva01.vim', { 'branch': 'main' }
+
 
 " vim-airline/vim-airline: modern theme
 Plug 'vim-airline/vim-airline'
@@ -147,8 +151,6 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 autocmd FileType python set equalprg=autopep8\ -
 
 
-  " onedark
-  colorscheme onedark
 
 
 " TaDaa/vimade
@@ -254,3 +256,12 @@ let g:sneak#label = 1
 let g:languagetool_jar = '/usr/local/share/LanguageTool-5.2/languagetool-commandline.jar'
 let g:languagetool_lang = 'en-US' 
 nnoremap <leader>l :LanguageToolCheck<CR>
+
+
+" theme
+" onedark
+" colorscheme onedark
+"
+" eva01
+" colorscheme eva01
+colorscheme eva01-LCL
