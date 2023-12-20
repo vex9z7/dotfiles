@@ -20,9 +20,8 @@ order += "cpu_temperature 0"
 order += "memory"
 order += "disk /"
 
-
-order += "time"
 order += "battery all"
+order += "time"
 
 
 volume master {
@@ -56,7 +55,7 @@ battery all {
         # show the battery percentage without decimals
         integer_battery_capacity = true
 
-        format = "%status %percentage %remaining %emptytime"
+        format = "%status %percentage %remaining"
         format_down = "󱉝"
         status_chr = "󰂏"
         status_bat = "󰂌"
@@ -82,8 +81,6 @@ path_exists VPN {
 
 
 time {
-        separator = false
-
         format = "%m-%d %H:%M"
 }
 
