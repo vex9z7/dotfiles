@@ -2,7 +2,6 @@
 
 DOTS_ROOT=$(pwd)
 
-
 cd .config
 configs=$(ls -A)
 
@@ -37,12 +36,6 @@ for config  in .bashrc .profile; do
     fi
 done
 
-
-# create soft links in ~ for other configuration files
-for config  in .vimrc .Xmodmap .Xresources; do
-  rm -f ~/$config
-  ln -s $(realpath $config) ~/
-done
 
 
 # make soft link for picom
