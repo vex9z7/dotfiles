@@ -1,7 +1,6 @@
 Xft.dpi: 144
+! standard
 ! Xft.dpi: 96
-
-xterm*font:     *-fixed-*-*-*-30-*
 
 ! These might also be useful depending on your monitor and personal preference:
 Xft.autohint: 0
