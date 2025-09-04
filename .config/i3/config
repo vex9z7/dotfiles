@@ -239,8 +239,8 @@ bindsym $mod+c exec warpd --normal
 
 
 # assign workspaces
-set $leftMonitor "DP-1"
-set $rightMonitor "DP-4"
+set $leftMonitor "DP-2"
+set $rightMonitor "DP-5"
 workspace 1 output $leftMonitor
 workspace 2 output $leftMonitor
 workspace 3 output $leftMonitor
