@@ -40,15 +40,13 @@ exec --no-startup-id copyq
 
 # xrandr for monitors
 # exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
+mouse_warping none
 
 # source .profile
 exec_always --no-startup-id bash -c 'source $HOME/.profile'
 
 # japanese keyboard
 exec --no-startup-id ibus-daemon -drx
-
-# syncthing: 
-exec --no-startup-id syncthing
 
 # sound control
 # pulseaudio: to adjust volume
