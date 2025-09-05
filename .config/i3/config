@@ -298,13 +298,6 @@ mode "notifications" {
 bindsym $mod+grave mode "notifications"
 
 
-# TODO fit this indicator in xcape
-# mode "Caps Lock" {
-#   bindsym Caps_Lock mode "default"
-# }
-# 
-# bindsym Caps_Lock mode "Caps Lock"
-
 # for testing new commands
 mode "Testing" {
   bindsym Escape mode "default"
