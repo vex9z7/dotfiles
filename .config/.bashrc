@@ -1,3 +1,4 @@
+export PATH="$PATH:$HOME/.local/share/nvim/mason/bin/"
 # fzf
 export FZF_DEFAULT_COMMAND='rg'
 
