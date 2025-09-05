@@ -1,4 +1,6 @@
 export PATH="$PATH:$HOME/.local/share/nvim/mason/bin/"
+export ZK_NOTEBOOK_DIR="/mnt/vex9z7/the-vault/"
+
 # fzf
 export FZF_DEFAULT_COMMAND='rg'
 
