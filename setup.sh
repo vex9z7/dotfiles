@@ -2,6 +2,8 @@
 
 DOTS_ROOT=$(pwd)
 
+git submodule update --recursive
+
 cd .config
 configs=$(ls -A)
 
