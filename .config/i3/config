@@ -33,12 +33,6 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id bluetooth-autoconnect -d
 exec --no-startup-id autorandr login
 
-# copyq clipboard
-exec --no-startup-id copyq
-
-# xrandr for monitors
-# exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
-
 # disable cursor window focus
 focus_follows_mouse no
 mouse_warping none
@@ -48,9 +42,6 @@ popup_during_fullscreen leave_fullscreen
 workspace_auto_back_and_forth yes
 
 focus_on_window_activation focus
-
-# japanese keyboard
-exec --no-startup-id ibus-daemon -drx
 
 # Wide-screen monitors (anything wider than high) get horizontal orientation, rotated monitors (anything higher than wide) get vertical orientation.
 default_orientation auto
@@ -78,8 +69,6 @@ title_align center
 bindsym $mod+Return exec i3-sensible-terminal
 # start chrome
 bindsym $mod+backslash exec google-chrome
-# start zathura
-bindsym $mod+z exec zathura
 
 
 # kill focused window
@@ -260,11 +249,13 @@ workspace 10 output $rightMonitor
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pin
+bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="1.00001;1.00001" flameshot gui -c -s --pin
+
 bindsym Shift + Print --release exec peek
 
 
-# clipboard manager
+# clipboard manager: copyq clipboard
+exec --no-startup-id copyq
 bindsym $mod+v exec copyq menu
 
 # system setting
