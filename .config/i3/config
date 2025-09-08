@@ -41,10 +41,19 @@ exec --no-startup-id copyq
 
 # disable cursor window focus
 focus_follows_mouse no
+mouse_warping none
 
+popup_during_fullscreen leave_fullscreen
+
+workspace_auto_back_and_forth yes
+
+focus_on_window_activation focus
 
 # japanese keyboard
 exec --no-startup-id ibus-daemon -drx
+
+# Wide-screen monitors (anything wider than high) get horizontal orientation, rotated monitors (anything higher than wide) get vertical orientation.
+default_orientation auto
 
 # sound control
 # pulseaudio: to adjust volume
