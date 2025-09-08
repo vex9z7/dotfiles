@@ -67,6 +67,8 @@ bindsym Shift+XF86AudioNext exec playerctl next
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+title_align center
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 # start chrome
@@ -280,10 +282,9 @@ client.unfocused        #fbfbfb #fbfbfb #4d4d4d #fbfbfb #fbfbfb
 client.focused          #eba601 #eba601 #fbfbfb #eba601 #eba601
 
 # i3 gap
-for_window [class="^.*"] border normal
-default_border pixel 1
+# for_window [class="^.*"] border normal
+default_border none
 gaps inner 10
-
 
 # dunst
 mode "notifications" {
