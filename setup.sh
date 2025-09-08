@@ -38,8 +38,6 @@ for config  in .bashrc .profile; do
     fi
 done
 
-
-
 # make soft link for picom
 sudo rm -f /etc/xdg/picom.conf 
 sudo ln -s $(realpath picom.conf) /etc/xdg
@@ -52,14 +50,18 @@ sudo ln -s $(realpath xrandr) /etc/xdg
 # go to dots root
 cd $DOTS_ROOT
 
+
 # bluetooth-autoconnect
 cd bluetooth-autoconnect
 sudo cp $(realpath bluetooth-autoconnect) /usr/local/bin/
 sudo cp $(realpath bluetooth-autoconnect.service) /etc/systemd/system/
-sudo systemctl enable bluetooth-autoconnect
 # go to dots root
 cd $DOTS_ROOT
 
+# enable systemd user services
+sudo systemctl enable bluetooth-autoconnect
+sudo loginctl enable-linger $USER
+sudo systemctl --user enable picom.service
 
 # copy resources
 cp -r resources $(realpath ~/.config)/

@@ -31,9 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -c fbf
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id bluetooth-autoconnect -d
-
-# picom
-exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence
+exec --no-startup-id autorandr login
 
 # copyq clipboard
 exec --no-startup-id copyq
@@ -44,8 +42,6 @@ exec --no-startup-id copyq
 # disable cursor window focus
 focus_follows_mouse no
 
-# source .profile
-exec_always --no-startup-id bash -c 'source $HOME/.profile'
 
 # japanese keyboard
 exec --no-startup-id ibus-daemon -drx
@@ -257,13 +253,6 @@ bindsym $mod+Shift+less move workspace to output left
 
 bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pin
 bindsym Shift + Print --release exec peek
-
-
-# laptop layout
-bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && bash ~/.profile && picom --experimental-backends --backend glx --xrender-sync-fence
-
-# 2 vertical layout when using K380
-bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && bash ~/.profile && picom --experimental-backends --backend glx --xrender-sync-fence
 
 
 # clipboard manager
