@@ -1,6 +1,3 @@
-help:
-	@echo "This make line will not be printed"
-
 all: install-deps install-configs setup-services
 clean: turn-off-services clean-configs
 
@@ -37,6 +34,7 @@ dot-config:
 	./devbin/inject-dot-bashrc-and-dot-profile
 fonts:
 	stow -t ~/.local/share fonts
+	fc-cache -f -v
 resources:
 	stow -t ~/.config resources
 
