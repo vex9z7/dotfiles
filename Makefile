@@ -2,10 +2,12 @@ all: install-deps install-configs setup-services
 clean: turn-off-services clean-configs
 
 
-install-deps: apt flatpak pyenv fzf script-bin
+install-deps: apt snap flatpak pyenv fzf script-bin
 apt:
 	sudo apt update
 	xargs sudo apt install -y < ./deps/apt.txt
+snap:
+	xargs sudo snap install < ./deps/snap.txt
 flatpak:
 	xargs flatpak install --user -y flathub < ./deps/flathub.txt
 pyenv:

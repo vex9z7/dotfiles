@@ -12,3 +12,4 @@ peek
 ripgrep
 bat
 stow
+xclip

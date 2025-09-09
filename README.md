@@ -32,7 +32,7 @@ sudo ninja install
 
 ## bluetooth-autoconnect
 
-### dependency
+### dependencies
 
 ```
 python3 -m pip install python-prctl dbus-python
@@ -44,18 +44,3 @@ sudo apt install bluez
 - run `blueman-applet` in daemon
 - `blueman-manager` and connect keyboard
 - select auto connect profile
-
-## Home-made-scripts
-
-### ocr
-
-#### dependency
-
-- tesseract
-- flameshot
-
-```
-
-#!/bin/bash
-flameshot gui --raw -s | tesseract - - | xclip -in -selection clipboard
-```
