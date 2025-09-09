@@ -1,6 +1,6 @@
 [submodule "bluetooth-autoconnect"]
 	path = bluetooth-autoconnect
 	url = git@github.com:vex9z7/bluetooth-autoconnect.git
-[submodule "sao-assets"]
-	path = sao-assets
+[submodule "misc/sao-assets"]
+	path = misc/sao-assets
 	url = git@github.com:vex9z7/sao-assets.git
