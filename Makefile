@@ -8,9 +8,9 @@ clean: turn-off-services clean-configs
 install-deps: apt flatpak pyenv fzf script-bin
 apt:
 	sudo apt update
-	xargs sudo apt install -y < ./dependencies/apt.txt
+	xargs sudo apt install -y < ./deps/apt.txt
 flatpak:
-	xargs flatpak install --user -y flathub < ./dependencies/flathub.txt
+	xargs flatpak install --user -y flathub < ./deps/flathub.txt
 pyenv:
 	@if [ -d "$$HOME/.pyenv" ]; then \
 		echo "pyenv is already installed at $$HOME/.pyenv"; \
