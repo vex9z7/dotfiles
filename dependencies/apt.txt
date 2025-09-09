@@ -1,0 +1,14 @@
+dunst
+suckless-tools
+xss-lock
+i3lock
+blueman
+i3status
+playerctl
+pulseaudio
+autorandr
+picom
+peek
+ripgrep
+bat
+stow
