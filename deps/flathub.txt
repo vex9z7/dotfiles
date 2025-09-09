@@ -1,0 +1,2 @@
+com.github.hluk.copyq
+org.flameshot.Flameshot

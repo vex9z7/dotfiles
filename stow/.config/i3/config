@@ -9,12 +9,12 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # with SAO font
-font pango:SAO UI TT 16
+font pango: SAO UI TT 16
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,26 +31,20 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -c fbf
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id bluetooth-autoconnect -d
+exec --no-startup-id autorandr login
 
-# picom
-exec --no-startup-id picom --experimental-backends --backend glx --xrender-sync-fence --config /etc/xdg/picom/picom.config
-# xrdb: scaling
-exec --no-startup-id xrdb ~/.Xresources
+# disable cursor window focus
+focus_follows_mouse no
+mouse_warping none
 
-# copyq clipboard
-exec --no-startup-id copyq
+popup_during_fullscreen leave_fullscreen
 
-# xrandr for monitors
-exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh
+workspace_auto_back_and_forth yes
 
-# source .profile
-exec_always --no-startup-id bash -c 'source $HOME/.profile'
+focus_on_window_activation focus
 
-# japanese keyboard
-exec --no-startup-id ibus-daemon -drx
-
-# syncthing: 
-exec --no-startup-id syncthing
+# Wide-screen monitors (anything wider than high) get horizontal orientation, rotated monitors (anything higher than wide) get vertical orientation.
+default_orientation auto
 
 # sound control
 # pulseaudio: to adjust volume
@@ -69,12 +63,12 @@ bindsym Shift+XF86AudioNext exec playerctl next
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+title_align center
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 # start chrome
 bindsym $mod+backslash exec google-chrome
-# start zathura
-bindsym $mod+z exec zathura
 
 
 # kill focused window
@@ -233,13 +227,12 @@ bar {
 # lazy mouse
 bindsym $mod+x exec warpd --hint2
 bindsym $mod+c exec warpd --normal
-bindsym $mod+g exec warpd --grid
 
 
 
 # assign workspaces
-set $leftMonitor "DP-1"
-set $rightMonitor "DP-4"
+set $leftMonitor "DP-2"
+set $rightMonitor "DP-5"
 workspace 1 output $leftMonitor
 workspace 2 output $leftMonitor
 workspace 3 output $leftMonitor
@@ -256,18 +249,13 @@ workspace 10 output $rightMonitor
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="" flameshot gui -c -s --pin
+bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="1.00001;1.00001" flameshot gui -c -s --pin
+
 bindsym Shift + Print --release exec peek
 
 
-# laptop layout
-bindsym $mod+Home exec --no-startup-id bash /home/mujin/rito-dots/.config/xrandr/laptop.sh  && bash ~/.profile
-
-# 2 vertical layout when using K380
-bindsym $mod+XF86HomePage exec --no-startup-id bash /etc/xdg/xrandr/2vertical.sh && bash ~/.profile
-
-
-# clipboard manager
+# clipboard manager: copyq clipboard
+exec --no-startup-id copyq
 bindsym $mod+v exec copyq menu
 
 # system setting
@@ -283,10 +271,9 @@ client.unfocused        #fbfbfb #fbfbfb #4d4d4d #fbfbfb #fbfbfb
 client.focused          #eba601 #eba601 #fbfbfb #eba601 #eba601
 
 # i3 gap
-for_window [class="^.*"] border normal
-default_border pixel 1
+# for_window [class="^.*"] border normal
+default_border none
 gaps inner 10
-
 
 # dunst
 mode "notifications" {
@@ -299,3 +286,11 @@ mode "notifications" {
     bindsym $mod+grave exec "dunstctl close-all" ; mode "default"
 }
 bindsym $mod+grave mode "notifications"
+
+
+# for testing new commands
+mode "Testing" {
+  bindsym Escape mode "default"
+  bindsym $mod+Shift+b mode "default"
+}
+bindsym $mod+Shift+b mode "Testing"

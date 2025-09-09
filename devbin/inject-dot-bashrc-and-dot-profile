@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for config in .bashrc .profile; do
+  config_path="$HOME/$config"
+  if ! [ -f "$config_path" ]; then
+    touch "$config_path"
+  fi
+
+  cmd="source ~/.config/$config"
+  echo "$cmd"
+
+  if ! grep -q "$cmd" "$config_path"; then
+    echo "$cmd" >>"$config_path"
+  fi
+done
