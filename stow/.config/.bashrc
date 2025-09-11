@@ -36,4 +36,11 @@ export NVM_DIR="$HOME/.nvm"
 alias cc="ccze --mode=ansi"
 alias ps="ps auxwf | ccze --mode=ansi"
 
+# Credentials
+if [ -d "$HOME/.credentials" ]; then
+  for f in "$HOME/.credentials/"*; do
+    source "$f"
+  done
+fi
+
 # Restart your shell for the changes to take effect.
