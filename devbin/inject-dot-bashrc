@@ -1,0 +1,12 @@
+#!/bin/bash
+
+config_path="$HOME/.bashrc"
+if ! [ -f "$config_path" ]; then
+  touch "$config_path"
+fi
+
+cmd="source ~/.config/$config"
+
+if ! grep -q "$cmd" "$config_path"; then
+  echo "$cmd" >>"$config_path"
+fi

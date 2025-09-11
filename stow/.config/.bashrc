@@ -114,24 +114,6 @@ if ! shopt -oq posix; then
 fi
 # ----------------------------------- END DEFAULTS -----------------------------------
 
-# user local executables
-if [ -d ~/.local/bin ]; then
-  export PATH=$PATH:~/.local/bin
-fi
-
-# Snap executable path
-if [ -d /snap/bin/ ]; then
-  export PATH=$PATH:/snap/bin/
-fi
-
-# mason executable path
-if [ -d ~/.local/share/nvim/mason/bin ]; then
-  export PATH="$PATH:~/.local/share/nvim/mason/bin/"
-fi
-
-# zk
-export ZK_NOTEBOOK_DIR="/mnt/vex9z7/the-vault/"
-
 # fzf
 if type rg &>/dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore'
@@ -159,11 +141,6 @@ eval "$(thefuck --alias)"
 eval "$(thefuck --alias FUCK)"
 
 # Load pyenv automatically by appending
-# the following to ~/.bash_profile if it exists, otherwise ~/.profile (for login shells) and ~/.bashrc (for interactive shells) :
-
-export PYENV_ROOT="$HOME/.pyenv"
-# Add pyenv executable to PATH if pyenv command is not already available
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # nvm

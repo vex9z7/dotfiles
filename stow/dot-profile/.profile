@@ -25,3 +25,22 @@ fi
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
+
+# Snap executable path
+if [ -d /snap/bin/ ]; then
+  PATH=$PATH:/snap/bin/
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+# Add pyenv executable to PATH if pyenv command is not already available
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+
+# mason executable path
+if [ -d ~/.local/share/nvim/mason/bin ]; then
+  PATH="$PATH:~/.local/share/nvim/mason/bin/"
+fi
+
+export PATH
+
+# zk
+export ZK_NOTEBOOK_DIR="/mnt/vex9z7/the-vault/"

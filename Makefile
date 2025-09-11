@@ -32,8 +32,9 @@ install-configs: dot-config x11 fonts resources
 x11:
 	stow -t ~ X11
 dot-config:
-	stow -t ~/.config .config
-	./devbin/inject-dot-bashrc-and-dot-profile
+	stow -t ~/.config .config dot-profile
+	stow -t ~ dot-profile
+	./devbin/inject-dot-bashrc
 fonts:
 	stow -t ~/.local/share fonts
 	fc-cache -f -v
@@ -53,6 +54,7 @@ turn-off-services:
 
 clean-configs:
 	stow --delete -t ~ X11
-	stow --delete -t ~/.config .config resources
+	stow --delete -t ~/.config .config dot-profile resources
+	stow --delete -t ~ dot-profile
 	stow --delete -t ~/.local/share fonts
 	stow --delete -t ~/.local/bin script-bin
