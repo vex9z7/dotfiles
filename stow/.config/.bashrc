@@ -114,18 +114,18 @@ if ! shopt -oq posix; then
 fi
 # ----------------------------------- END DEFAULTS -----------------------------------
 
-# Python PIP executable path
-if [ -f ~/.local/bin ]; then
+# user local executables
+if [ -d ~/.local/bin ]; then
   export PATH=$PATH:~/.local/bin
 fi
 
 # Snap executable path
-if [ -f /snap/bin/ ]; then
+if [ -d /snap/bin/ ]; then
   export PATH=$PATH:/snap/bin/
 fi
 
 # mason executable path
-if [ -f ~/.local/share/nvim/mason/bin ]; then
+if [ -d ~/.local/share/nvim/mason/bin ]; then
   export PATH="$PATH:~/.local/share/nvim/mason/bin/"
 fi
 
@@ -162,6 +162,7 @@ eval "$(thefuck --alias FUCK)"
 # the following to ~/.bash_profile if it exists, otherwise ~/.profile (for login shells) and ~/.bashrc (for interactive shells) :
 
 export PYENV_ROOT="$HOME/.pyenv"
+# Add pyenv executable to PATH if pyenv command is not already available
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
