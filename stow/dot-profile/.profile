@@ -10,25 +10,25 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-  # include .bashrc if it exists
-  if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
-  fi
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
+		. "$HOME/.bashrc"
+	fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-  PATH="$HOME/.local/bin:$PATH"
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Snap executable path
 if [ -d /snap/bin/ ]; then
-  PATH=$PATH:/snap/bin/
+	PATH=$PATH:/snap/bin/
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -37,7 +37,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 
 # mason executable path
 if [ -d ~/.local/share/nvim/mason/bin ]; then
-  PATH="$PATH:~/.local/share/nvim/mason/bin/"
+	PATH="$PATH:~/.local/share/nvim/mason/bin/"
 fi
 
 export PATH

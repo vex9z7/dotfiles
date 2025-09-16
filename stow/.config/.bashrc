@@ -1,13 +1,13 @@
 # fzf
 if type rg &>/dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore'
-  export FZF_DEFAULT_OPTS='-m --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'
+	export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore'
+	export FZF_DEFAULT_OPTS='-m --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down'
 fi
 
 # preview
 if type batcat &>/dev/null; then
-  alias bat="batcat"
-  export FZF_CTRL_T_OPTS='--style full --preview '\''fzf-preview.sh {}'\'''
+	alias bat="batcat"
+	export FZF_CTRL_T_OPTS='--style full --preview '\''fzf-preview.sh {}'\'''
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -38,9 +38,9 @@ alias ps="ps auxwf | ccze --mode=ansi"
 
 # Credentials
 if [ -d "$HOME/.credentials" ]; then
-  for f in "$HOME/.credentials/"*; do
-    source "$f"
-  done
+	for f in "$HOME/.credentials/"*; do
+		source "$f"
+	done
 fi
 
 # Restart your shell for the changes to take effect.
