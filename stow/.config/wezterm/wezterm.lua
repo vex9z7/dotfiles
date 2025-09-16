@@ -9,6 +9,15 @@ config.font = wezterm.font_with_fallback({
 	"JetBrainsMono Nerd Font Mono",
 	"HYSunWanMinCaoShu",
 })
+
+config.font_rules = {
+	{
+		intensity = "Bold",
+		italic = true,
+		font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font Mono" }),
+	},
+}
+
 config.font_size = 16
 config.color_scheme = "AdventureTime"
 
