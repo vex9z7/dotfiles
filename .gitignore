@@ -1,2 +1,5 @@
 # systemd generated files
 *.target.wants
+
+# generated font stamp file
+**/fonts/.uuid
