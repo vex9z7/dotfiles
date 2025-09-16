@@ -44,3 +44,4 @@ export PATH
 
 # zk
 export ZK_NOTEBOOK_DIR="/mnt/vex9z7/the-vault/"
+export TERMINAL="wezterm"
