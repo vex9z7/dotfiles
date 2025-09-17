@@ -4,6 +4,7 @@ xss-lock
 i3lock
 blueman
 i3status
+brightnessctl
 playerctl
 pulseaudio
 autorandr
