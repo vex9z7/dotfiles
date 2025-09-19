@@ -248,7 +248,8 @@ workspace 10 output $rightMonitor
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="1.00001;1.00001" flameshot gui -c -s --pin
+# HACK: woraround to align the screen resolution
+bindsym Print --release exec QT_SCREEN_SCALE_FACTORS="1.00001" flameshot gui -c -s --pin
 
 bindsym Shift + Print --release exec peek
 
