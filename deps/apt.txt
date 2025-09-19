@@ -17,3 +17,4 @@ xclip
 thefuck
 fcitx5
 fcitx5-chinese-addons
+zathura
