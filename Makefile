@@ -1,4 +1,4 @@
-all: install-deps install-configs setup-services
+all: install-deps install-configs setup-services setup-mime-defaults
 clean: turn-off-services clean-configs
 
 
@@ -47,10 +47,11 @@ setup-services:
 	systemctl --user daemon-reload
 	systemctl --user enable picom.service
 
+setup-mime-defaults:
+	xdg-mime default org.pwmt.zathura.desktop application/pdf
 
 turn-off-services:
 	systemctl --user disable picom.service
-
 
 clean-configs:
 	stow --delete -t ~ X11
