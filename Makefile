@@ -1,6 +1,7 @@
+.PHONY: all clean
+
 all: install-deps install-configs setup-services setup-mime-defaults
 clean: turn-off-services clean-configs
-
 
 install-deps: apt snap flatpak pyenv fzf script-bin
 apt:
@@ -10,6 +11,7 @@ snap:
 	xargs sudo snap install < ./deps/snap.txt
 flatpak:
 	xargs flatpak install --user -y flathub < ./deps/flathub.txt
+
 pyenv:
 	@if [ -d "$$HOME/.pyenv" ]; then \
 		echo "pyenv is already installed at $$HOME/.pyenv"; \
@@ -17,6 +19,7 @@ pyenv:
 		echo "Installing pyenv..."; \
 		curl -fsSL https://pyenv.run | bash; \
 	fi
+
 fzf:
 	@if [ ! -d "$$HOME/.fzf" ]; then \
 		git clone --depth 1 https://github.com/junegunn/fzf.git $$HOME/.fzf && \
