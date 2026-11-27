@@ -1,0 +1,5 @@
+export EDITOR="nvim"
+export VISUAL="nvim"
+export PAGER="less"
+export LESS="-R"
+[[ ! -f "$HOME/.cargo/env" ]] || source "$HOME/.cargo/env"

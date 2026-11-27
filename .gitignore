@@ -1,0 +1,4 @@
+.zsh_plugins.zsh
+*.zwc
+*.zcompdump*
+.DS_Store
