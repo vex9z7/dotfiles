@@ -79,7 +79,17 @@ fi
 # Antidote plugins
 # ------------------------------
 
-source /usr/share/zsh-antidote/antidote.zsh
+# Antidote installation paths differ between installation path:
+# Workaround: support both without changing their installations.
+if [[ -f /usr/share/zsh-antidote/antidote.zsh ]]; then
+  source /usr/share/zsh-antidote/antidote.zsh
+elif [[ -f "$HOME/.antidote/antidote.zsh" ]]; then
+  source "$HOME/.antidote/antidote.zsh"
+else
+  print -u2 "Warning: Antidote is not installed"
+fi
+
+source "$HOME/.zsh_plugins.zsh"
 source ~/.zsh_plugins.zsh
 
 # ------------------------------
